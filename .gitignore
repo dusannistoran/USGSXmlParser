@@ -7,4 +7,6 @@ src/test
 *.iml
 *.ipr
 *.iws
+USGSXmlParser/
+src/main/scala/com/example/Notes
 
