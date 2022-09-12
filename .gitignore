@@ -1,0 +1,10 @@
+target
+project
+src/test
+.bsp
+.idea
+*.class
+*.iml
+*.ipr
+*.iws
+
