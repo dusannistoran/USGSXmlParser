@@ -9,4 +9,6 @@ src/test
 *.iws
 USGSXmlParser/
 src/main/scala/com/example/Notes
+/src/main/scala/com/example/Average.scala
+/src/main/scala/com/example/Producer.scala
 

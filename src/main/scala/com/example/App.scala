@@ -1,13 +1,13 @@
 package com.example
 
-import com.example.Utils.extractIdsFromEvents
-import com.example.Utils.getHourAgoFormattedTime
+import com.example.Utils.{getHourAgoFormattedTime}
 import com.typesafe.config.{Config, ConfigFactory}
 import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
 
+
 object App {
-  
+
   def main(args: Array[String]): Unit = {
 
     val configSpark: Config = ConfigFactory.load().getConfig("application.spark")
@@ -53,6 +53,7 @@ object App {
     println("dfData schema:")
     dfData.printSchema()
 
+    // sending dataframe to Kafka
     import org.apache.spark.sql.functions._
     dfData.select(to_json(struct("*")).alias("value"))
 
@@ -62,7 +63,6 @@ object App {
       .option("kafka.bootstrap.servers", "localhost:9092")
       .option("topic", "earthquakes-xml")
       .save()
-
   }
 
   case class Earthquake(
